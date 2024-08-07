@@ -47,5 +47,57 @@ namespace StudentManagementAPI.Controllers
 
             return CreatedAtAction(nameof(GetClass), new { id = classItem.Id }, classItem);
         }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutClass(int id, Class classItem)
+        {
+            if (id != classItem.Id)
+            {
+                return BadRequest();
+            }
+
+            classItem.UpdatedAt = DateTime.UtcNow;
+            _context.Entry(classItem).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!ClassExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return NoContent();
+        }
+
+        private bool ClassExists(int id)
+        {
+            return _context.Classes.Any(e => e.Id == id);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteClass(int id)
+        {
+            var classItem = await _context.Classes.FindAsync(id);
+            if (classItem == null)
+            {
+                return NotFound();
+            }
+
+            _context.Classes.Remove(classItem);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
+        }
+
+
     }
 }
