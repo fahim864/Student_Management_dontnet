@@ -11,6 +11,6 @@
         public DateTime UpdatedAt { get; set; }
         public DateTime? DeletedAt { get; set; }
 
-        public Class Class { get; set; }
+        public Class? Class { get; set; }
     }
 }

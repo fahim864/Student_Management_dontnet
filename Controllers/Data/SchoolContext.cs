@@ -16,7 +16,10 @@ namespace StudentManagementAPI.Controllers.Data
                 .HasOne(s => s.Class)
                 .WithMany(c => c.Sections)
                 .HasForeignKey(s => s.ClassId)
-                .OnDelete(DeleteBehavior.Restrict); 
+                .OnDelete(DeleteBehavior.Restrict);
+            // Ensure Class is not required
+            modelBuilder.Entity<Section>()
+                .Ignore(s => s.Class);
 
             modelBuilder.Entity<Student>()
                 .HasOne(s => s.Class)
