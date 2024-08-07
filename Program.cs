@@ -1,10 +1,10 @@
 using Microsoft.EntityFrameworkCore;
-using StudentManagementAPI.Controllers.Models;
+using StudentManagementAPI.Controllers.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddDbContext<ClassModelContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("StudentManagementCS")));
+builder.Services.AddDbContext<SchoolContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("StudentManagementCS")));
 
 
 builder.Services.AddControllers();

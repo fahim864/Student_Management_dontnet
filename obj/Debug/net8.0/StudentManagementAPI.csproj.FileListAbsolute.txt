@@ -134,3 +134,4 @@ D:\Development\angular_dotnet\StudentManagementAPI\obj\Debug\net8.0\refint\Stude
 D:\Development\angular_dotnet\StudentManagementAPI\obj\Debug\net8.0\StudentManagementAPI.pdb
 D:\Development\angular_dotnet\StudentManagementAPI\obj\Debug\net8.0\StudentManagementAPI.genruntimeconfig.cache
 D:\Development\angular_dotnet\StudentManagementAPI\obj\Debug\net8.0\ref\StudentManagementAPI.dll
+D:\Development\angular_dotnet\StudentManagementAPI\obj\Debug\net8.0\StudentManagementAPI.sourcelink.json
